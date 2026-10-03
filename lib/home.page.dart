@@ -85,17 +85,40 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      body: Center(
-        child: Text(
-          "How are you people?",
-          style: GoogleFonts.lobster(
-            fontSize: 28,
-            color: Colors.black,
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(onPressed: (){},
+              style: TextButton.styleFrom(
+                // backgroundBuilder: Colors.red,
+                foregroundColor: Colors.deepOrangeAccent,
+                side: BorderSide(color:Colors.amberAccent, width:3),
+                fixedSize: Size(100,30),
+                elevation: 3,
+                shadowColor: Colors.brown
+                ),
+              
+              child: Text("red")),
+            ),
+            ElevatedButton(onPressed: () {}, 
+            style: TextButton.styleFrom(
+              // backgroundBuilder: Colors.red,
+              foregroundColor: Colors.deepOrangeAccent,
+              side: BorderSide(color:Colors.amberAccent, width:3),
+              fixedSize: Size(100,30),
+              elevation: 3,
+              shadowColor: Colors.brown
+              ),
+            child: Text("green")),
+            OutlinedButton(onPressed: () {}, child: Text("blue"))
+          ],
         ),
-      ),
+      )
     );
 
-    
   }
 }
