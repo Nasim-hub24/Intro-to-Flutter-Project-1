@@ -84,40 +84,77 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(onPressed: (){},
-              style: TextButton.styleFrom(
-                // backgroundBuilder: Colors.red,
-                foregroundColor: Colors.deepOrangeAccent,
-                side: BorderSide(color:Colors.amberAccent, width:3),
-                fixedSize: Size(100,30),
-                elevation: 3,
-                shadowColor: Colors.brown
-                ),
-              
-              child: Text("red")),
-            ),
-            ElevatedButton(onPressed: () {}, 
-            style: TextButton.styleFrom(
-              // backgroundBuilder: Colors.red,
-              foregroundColor: Colors.deepOrangeAccent,
-              side: BorderSide(color:Colors.amberAccent, width:3),
-              fixedSize: Size(100,30),
-              elevation: 3,
-              shadowColor: Colors.brown
-              ),
-            child: Text("green")),
-            OutlinedButton(onPressed: () {}, child: Text("blue"))
-          ],
-        ),
-      )
-    );
+        child:Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
 
+    // Red Button
+    TextButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.hovered)
+              ? Colors.red.shade100
+              : Colors.white,
+        ),
+        foregroundColor: WidgetStateProperty.all(Colors.red),
+        padding: WidgetStateProperty.all(
+          const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+        ),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: const BorderSide(color: Colors.red),
+          ),
+        ),
+      ),
+      child: const Text("Red"),
+    ),
+
+    // Green Button
+    ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+        elevation: 5,
+        shadowColor: Colors.greenAccent,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 25,
+          vertical: 15,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      child: const Text("Green"),
+    ),
+
+    // Blue Button
+    OutlinedButton(
+      onPressed: () {},
+      style: OutlinedButton.styleFrom(
+        foregroundColor: Colors.blue,
+        side: const BorderSide(
+          color: Colors.blue,
+          width: 2,
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 25,
+          vertical: 15,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      child: const Text("Blue"),
+    ),
+  ],
+)
+
+      ),
+    );
   }
 }
